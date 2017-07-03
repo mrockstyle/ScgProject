@@ -142,7 +142,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void goToProfile() {
         Intent intent = new Intent(getActivity(), AfterSignInActivity.class);
-        startActivity(intent);
+        getActivity().startActivity(intent);
         getActivity().finish();
     }
 
