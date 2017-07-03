@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.sirawich.scgproject.R;
+import com.example.sirawich.scgproject.fragment.LoginFragment;
+import com.example.sirawich.scgproject.fragment.MainFragment;
+import com.example.sirawich.scgproject.fragment.ProfileFragment;
 
 public class AfterSignInActivity extends AppCompatActivity {
 
@@ -24,7 +27,11 @@ public class AfterSignInActivity extends AppCompatActivity {
 
         initInstance();
         if (savedInstanceState == null){
-
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.contentContainer, MainFragment.newInstance())
+                    .add(R.id.menu_contentContainer, ProfileFragment.newInstance())
+                    .commit();
         }
     }
 
