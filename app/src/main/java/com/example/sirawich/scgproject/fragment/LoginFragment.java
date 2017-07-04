@@ -1,6 +1,7 @@
 package com.example.sirawich.scgproject.fragment;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -67,7 +68,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         edtEmail = (EditText) rootView.findViewById(R.id.edtEmail);
         edtPassword = (EditText) rootView.findViewById(R.id.edtPassword);
         btnLogIn = (Button) rootView.findViewById(R.id.btnLogIn);
-        pref = getActivity().getPreferences(0);
+        pref = Contextor.getInstance().getContext().getSharedPreferences("MyPref",0);
 
         btnLogIn.setOnClickListener(this);
     }

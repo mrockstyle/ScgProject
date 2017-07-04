@@ -1,7 +1,9 @@
 package com.example.sirawich.scgproject.activity;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,18 +15,21 @@ import com.example.sirawich.scgproject.R;
 import com.example.sirawich.scgproject.fragment.LoginFragment;
 import com.example.sirawich.scgproject.fragment.MainFragment;
 import com.example.sirawich.scgproject.fragment.ProfileFragment;
+import com.example.sirawich.scgproject.models.Constants;
+import com.inthecheesefactory.thecheeselibrary.manager.Contextor;
 
 public class AfterSignInActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_sign_in);
-
+        pref = Contextor.getInstance().getContext().getSharedPreferences("MyPref",0);
         initInstance();
         if (savedInstanceState == null){
             getSupportFragmentManager()
